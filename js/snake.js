@@ -41,8 +41,14 @@ $(document).ready(function(){
         var j = parseInt(snake[0].split('_')[1]);
         var r = Math.random();
         if (!food){
-            if (r>0.5){
+            if (r<=0.25){
                 return i+"_"+(j+1);
+            }
+            else if (r<=0.5){
+                return i+"_"+(j-1);
+            }
+            else if (r<=0.75){
+                return (i-1)+"_"+j
             }
             else{
                 return (i+1)+"_"+j;
