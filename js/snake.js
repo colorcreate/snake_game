@@ -127,10 +127,12 @@ $(document).ready(function(){
     //GUI
     control = {
         time: 0.5,
-        play: false
+        play: false,
+        message: "checked menu 'play' to play snake game,  and let's see what happen next, and try to customize your snake speed"
     };
 
     gui = new dat.GUI();
+    gui.add(control, 'message');
     gui.add(control, 'time', 0, 1).name('time');
     var play_pause = gui.add(control, 'play');
     play_pause.onChange(function(params){
