@@ -24,6 +24,7 @@ body {
   width: 20px;
   border-bottom: 1px solid #4d4d4d;
   border-right: 1px solid #4d4d4d;
+  box-sizing: border-box;
 }
 
 [id|=box].active{
