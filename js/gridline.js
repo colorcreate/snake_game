@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var box_size = 20;
-    var height = 700;
-    var width=1500;
+    var height = screen.height;
+    var width= screen.width;
 
     //generate row
     var i=0;
