@@ -1,9 +1,10 @@
 $(document).ready(function(){
     //init parameters
     var gui, control, params, isPaused=true;
+    var r = $('[id|=row]').length;//row
+    var c = $('[id|=box]').length/r;//colomn
     var initMatrix = function(){
-        var r = $('[id|=row]').length;//row
-        var c = $('[id|=box]').length/r;//colomn
+        
         var m = new Array(r);//matriks m[i][j]
         for(var i=0; i<r; i++ ){
             m[i]= new Array(c);
@@ -92,9 +93,22 @@ $(document).ready(function(){
         }
         
     }
+
+    var slack = function(h){
+        var i = parseInt(h.split('_')[0]) % r;
+        var j = parseInt(h.split('_')[1]) % c;
+        while (i<0){
+            i+=r;
+        }
+        while (j<0){
+            j+=c;
+        }
+        return i+"_"+j
+    }
     var snake_game = function(){
         if(!isPaused){
             var h = random_move();
+            h = slack(h);
             if(h==food){
                 snake.unshift(h);
                 $('#box-'+snake[0]).removeClass('food');
@@ -109,6 +123,7 @@ $(document).ready(function(){
                 snake[0]=h;
             }
             iterasi();
+            console.log(snake[0]);
         }
         requestAnimationFrame(snake_game, control.time*1000);
     };
