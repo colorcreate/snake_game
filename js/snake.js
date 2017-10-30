@@ -123,7 +123,7 @@ $(document).ready(function(){
                 snake[0]=h;
             }
             iterasi();
-            console.log(snake[0]);
+            // console.log(snake[0]);
         }
         requestAnimationFrame(snake_game, control.time*1000);
     };
